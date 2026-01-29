@@ -21,10 +21,30 @@ def num_triangles(h):
     if h == 2:
         return 2
     else:
-        # returns number of triangles for tower of height h
-        upright = 3 * (h-2)
-        upside_down = 2 * (h-2)
-        return upright + upside_down + num_triangles(h-1)
+        # for upside down triangles 
+        if h % 2 == 0:
+            final = 1
+            curr = 1
+            add_to = 0
+            for i in range(h//2-1):
+                add_to =  5 + 4*i
+                curr = curr + add_to
+                final = final + curr
+        else:
+            final = 3
+            curr = 3
+            add_to = 0
+            for i in range(h//2-1):
+                add_to = 7 + 4*i
+                curr = curr + add_to
+                final = final + curr
+        # for normal triangles 
+        upside_final = 1
+        upside_curr = 1
+        for i in range(h-2):
+            upside_curr = upside_curr + 2 + i*1
+            upside_final = upside_final + upside_curr
+    return final + upside_final
 
 #--- TEST CASES ---#
 for i in range(1,10):

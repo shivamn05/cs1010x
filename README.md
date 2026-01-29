@@ -1,2 +1,0 @@
-# cs1010x
-NUS iBLOC CS1010x Projects 
